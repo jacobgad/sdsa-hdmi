@@ -1,6 +1,6 @@
 interface Port {
 	number: number;
-	mode: 'input' | 'output';
+	mode: 'input' | 'output' | 'config';
 	value: number;
 	name: string;
 }
@@ -28,4 +28,8 @@ export const ports: Port[] = [
 	{ number: 20, mode: 'output', value: 524288, name: '' },
 	{ number: 21, mode: 'output', value: 1048576, name: 'Audio' },
 	{ number: 22, mode: 'output', value: 2097152, name: 'Recording PC' },
+	{ number: 23, mode: 'config', value: 0, name: '' },
+	{ number: 24, mode: 'config', value: 0, name: '' },
+	{ number: 25, mode: 'config', value: 0, name: '' },
+	{ number: 26, mode: 'config', value: 0, name: '' },
 ];
