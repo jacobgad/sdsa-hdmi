@@ -16,6 +16,10 @@ export default function HdmiInput({ name, portNumber }: Props) {
 				'http://192.168.168.100/cgi/cam_vlan.cgi',
 				setAllToInput(portNumber),
 				{
+					headers: {
+						'content-type': 'text/html;charset=GB2312',
+						accept: '*/*',
+					},
 					auth: {
 						username: 'admin',
 						password: 'admin',
