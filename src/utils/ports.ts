@@ -32,4 +32,5 @@ export const ports: Port[] = [
 	{ number: 24, mode: 'config', value: 0, name: '' },
 	{ number: 25, mode: 'config', value: 0, name: '' },
 	{ number: 26, mode: 'config', value: 0, name: '' },
+	{ number: 27, mode: 'config', value: 0, name: '' },
 ];

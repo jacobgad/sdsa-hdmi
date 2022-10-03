@@ -16,8 +16,9 @@ export function setAllToInput(portNumber: number) {
 	}, 0);
 	const values = ports.map((port, idx) => {
 		if (port.mode === 'output') return `m${idx}=0`;
-		if (port.number === portNumber) return `m${idx}=${port.value + outputValueSum}`;
-		if (port.mode === 'input') return `m${idx}=${port.value}`;
+		if (port.number === portNumber)
+			return `m${idx}=${port.value + outputValueSum}`;
+		return `m${idx}=${port.value}`;
 	});
 	return values.join('&');
 }
