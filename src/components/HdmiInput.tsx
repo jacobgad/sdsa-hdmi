@@ -16,10 +16,6 @@ export default function HdmiInput({ name, portNumber }: Props) {
 				'http://192.168.168.100/cgi/cam_vlan.cgi',
 				setAllToInput(portNumber),
 				{
-					headers: {
-						'content-type': 'text/html;charset=GB2312',
-						accept: '*/*',
-					},
 					auth: {
 						username: 'admin',
 						password: 'admin',
@@ -36,7 +32,7 @@ export default function HdmiInput({ name, portNumber }: Props) {
 		<button
 			onClick={() => mutate()}
 			disabled={isLoading}
-			className='grid aspect-video place-items-center rounded bg-blue-700 py-2 shadow hover:bg-blue-600 active:scale-95 active:shadow-none disabled:bg-gray-600 disabled:shadow-none'
+			className='grid aspect-video h-full place-items-center rounded bg-blue-700 py-2 px-4 shadow hover:bg-blue-600 active:scale-95 active:shadow-none disabled:bg-gray-600 disabled:shadow-none'
 		>
 			{isLoading ? <ArrowPathIcon className='h-full animate-spin' /> : name}
 		</button>
