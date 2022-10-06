@@ -38,7 +38,7 @@ export const stDemianaPorts: Port[] = [
 export const stJohnPorts: Port[] = [
 	{ number: 1, mode: 'input', value: 1, name: 'Upstairs' },
 	{ number: 2, mode: 'input', value: 2, name: 'Downstairs' },
-	{ number: 3, mode: 'input', value: 4, name: 'wireless' },
+	{ number: 3, mode: 'input', value: 4, name: 'Wireless' },
 	{ number: 4, mode: 'input', value: 8, name: '' },
 	{ number: 5, mode: 'input', value: 16, name: '' },
 	{ number: 6, mode: 'input', value: 32, name: '' },

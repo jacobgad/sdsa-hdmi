@@ -1,6 +1,5 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Building, getBuildingUrl, setAllPortsOff } from '../utils/adapter';
 
@@ -8,15 +7,22 @@ interface Props {
 	building: Building;
 }
 
+function turnOff(building: Building) {
+	return fetch(getBuildingUrl(building), {
+		method: 'POST',
+		body: setAllPortsOff(building),
+		mode: 'no-cors',
+		credentials: 'include',
+		headers: {
+			'Authorization': 'Basic ' + Buffer.from('admin:admin').toString('base64'),
+			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'text/plain',
+		},
+	});
+}
+
 export default function OffButton({ building }: Props) {
-	const { mutate, isLoading } = useMutation(
-		() =>
-			axios.post(getBuildingUrl(building), setAllPortsOff(building), {
-				auth: {
-					username: 'admin',
-					password: 'admin',
-				},
-			}),
+	const { mutate, isLoading } = useMutation(()=>turnOff(building),
 		{
 			onSuccess: () => toast.success('TVs turned off'),
 			onError: () => toast.error('Error turning off'),

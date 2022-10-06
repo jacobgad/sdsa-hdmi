@@ -1,5 +1,4 @@
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Building, getBuildingUrl, setAllToInput } from '../utils/adapter';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
@@ -10,19 +9,23 @@ interface Props {
 	building: Building;
 }
 
+function setInput(building: Building, portNumber: Port['number']) {
+	return fetch(getBuildingUrl(building), {
+		method: 'POST',
+		body: setAllToInput(portNumber, building),
+		mode: 'no-cors',
+		credentials: 'include',
+		headers: {
+			Authorization: 'Basic ' + Buffer.from('admin:admin').toString('base64'),
+			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'text/plain',
+		},
+	});
+}
+
 export default function HdmiInput({ port, building }: Props) {
 	const { mutate, isLoading } = useMutation(
-		() =>
-			axios.post(
-				getBuildingUrl(building),
-				setAllToInput(port.number, building),
-				{
-					auth: {
-						username: 'admin',
-						password: 'admin',
-					},
-				}
-			),
+		() => setInput(building, port.number),
 		{
 			onSuccess: () => toast.success('Updated'),
 			onError: () => toast.error('Error switching input'),
