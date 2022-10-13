@@ -1,6 +1,6 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { useMutation } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 import { Building, getBuildingUrl, setAllPortsOff } from '../utils/adapter';
 
 interface Props {
@@ -14,7 +14,7 @@ function turnOff(building: Building) {
 		mode: 'no-cors',
 		credentials: 'include',
 		headers: {
-			'Authorization': 'Basic ' + Buffer.from('admin:admin').toString('base64'),
+			Authorization: 'Basic ' + btoa('admin:admin'),
 			'Access-Control-Allow-Origin': '*',
 			'Content-Type': 'text/plain',
 		},
@@ -22,12 +22,10 @@ function turnOff(building: Building) {
 }
 
 export default function OffButton({ building }: Props) {
-	const { mutate, isLoading } = useMutation(()=>turnOff(building),
-		{
-			onSuccess: () => toast.success('TVs turned off'),
-			onError: () => toast.error('Error turning off'),
-		}
-	);
+	const { mutate, isLoading } = useMutation(() => turnOff(building), {
+		onSuccess: () => toast.success('TVs turned off'),
+		onError: () => toast.error('Error turning off'),
+	});
 
 	return (
 		<button

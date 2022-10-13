@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
 import { Building, getBuildingUrl, setAllToInput } from '../utils/adapter';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { Port } from '../utils/ports';
+import toast from 'react-hot-toast';
 
 interface Props {
 	port: Port;
@@ -16,7 +16,7 @@ function setInput(building: Building, portNumber: Port['number']) {
 		mode: 'no-cors',
 		credentials: 'include',
 		headers: {
-			Authorization: 'Basic ' + Buffer.from('admin:admin').toString('base64'),
+			Authorization: 'Basic ' + btoa('admin:admin'),
 			'Access-Control-Allow-Origin': '*',
 			'Content-Type': 'text/plain',
 		},
