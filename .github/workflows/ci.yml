@@ -1,0 +1,26 @@
+name: 'CI'
+
+on: push
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run tests
+        run: npm test
+
+      - name: Typecheck code
+        run: npm run typecheck
+
+      - name: Check code linting
+        run: npm run lint
+
+      - name: Check code format
+        run: npm run format:check
