@@ -10,29 +10,30 @@
 		"test": "vitest run",
 		"typecheck": "tsc --noEmit",
 		"lint": "eslint .",
-		"format:check": "prettier --check ."
+		"format:check": "prettier --check .",
+		"format:fix": "prettier --write ."
 	},
 	"dependencies": {
-		"@heroicons/react": "^2.0.16",
-		"@tanstack/react-query": "^4.28.0",
+		"@heroicons/react": "^2.0.18",
+		"@tanstack/react-query": "^4.35.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"react-hot-toast": "^2.4.0"
+		"react-hot-toast": "^2.4.1"
 	},
 	"devDependencies": {
-		"@types/react": "^18.0.29",
-		"@types/react-dom": "^18.0.11",
-		"@typescript-eslint/eslint-plugin": "^5.56.0",
-		"@typescript-eslint/parser": "^5.56.0",
-		"@vitejs/plugin-react": "^3.1.0",
-		"autoprefixer": "^10.4.14",
-		"eslint": "^8.36.0",
-		"postcss": "^8.4.21",
-		"prettier": "^2.8.7",
-		"prettier-plugin-tailwindcss": "^0.2.5",
-		"tailwindcss": "^3.2.7",
-		"typescript": "^5.0.2",
-		"vite": "^4.2.1",
-		"vitest": "^0.29.7"
+		"@types/react": "^18.2.22",
+		"@types/react-dom": "^18.2.7",
+		"@typescript-eslint/eslint-plugin": "^6.7.2",
+		"@typescript-eslint/parser": "^6.7.2",
+		"@vitejs/plugin-react": "^4.0.4",
+		"autoprefixer": "^10.4.16",
+		"eslint": "^8.49.0",
+		"postcss": "^8.4.30",
+		"prettier": "^3.0.3",
+		"prettier-plugin-tailwindcss": "^0.5.4",
+		"tailwindcss": "^3.3.3",
+		"typescript": "^5.2.2",
+		"vite": "^4.4.9",
+		"vitest": "^0.34.4"
 	}
 }

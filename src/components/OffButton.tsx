@@ -1,8 +1,8 @@
-import type { Building } from '../utils/adapter';
-import { ArrowPathIcon } from '@heroicons/react/24/outline';
-import { useMutation } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
 import { getBuildingUrl, setAllPortsOff } from '../utils/adapter';
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
+import type { Building } from '../utils/adapter';
+import toast from 'react-hot-toast';
+import { useMutation } from '@tanstack/react-query';
 
 interface Props {
 	building: Building;

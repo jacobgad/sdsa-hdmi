@@ -1,6 +1,6 @@
+import { stDemianaPorts, stJohnPorts } from './utils/ports';
 import HdmiInput from './components/HdmiInput';
 import OffButton from './components/OffButton';
-import { stDemianaPorts, stJohnPorts } from './utils/ports';
 
 export default function Dashboard() {
 	const stDemianaInputs = stDemianaPorts.filter(

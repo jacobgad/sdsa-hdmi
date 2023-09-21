@@ -1,5 +1,5 @@
-import type { Port } from './ports';
 import { stDemianaPorts, stJohnPorts } from './ports';
+import type { Port } from './ports';
 
 export type Building = 'demiana' | 'john';
 
